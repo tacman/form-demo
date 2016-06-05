@@ -1,0 +1,24 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <h1>Paints success</h1>
+
+    <p>You submitted the following paint selections:</p>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Colour</th>
+                <th>Finish</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paint in paints.paints %}
+                <tr>
+                    <td>{{ paint.color }}</td>
+                    <td>{{ paint.finish }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Collection helper</h2></div>
+                <div class="panel-body">
+                    <p>Collections can be used for arrays of scalar or complex types. Collections are database-agnostic so these demos have no database interaction.</p>
+                    <p>
+                        <a class="btn btn-primary" href="{{ path('numbers') }}">Scalar demo</a>
+                        <a class="btn btn-primary" href="{{ path('customer') }}">Complex demo</a>
+                    </p>
+                </div>
+            </section>
+            <section class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Polycollection demo</h2></div>
+                <div class="panel-body">
+                    <p>Polycollections can be used to manage different types of invoice line. Polycollections are database-agnostic so this demo has no database interaction.</p>
+                    <p><a class="btn btn-primary" href="{{ path('invoice_add') }}">Create invoice</a></p>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Checkbox grid demo</h2></div>
+                <div class="panel-body">
+                    <p>Checkbox grids can be used on plain arrays. See below for Doctrine entities.</p>
+                    <p>
+                        <a class="btn btn-primary" href="{{ path('paint') }}">Simple demo</a>
+                    </p>
+                </div>
+            </section>
+            <section class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Entity checkbox grid demo</h2></div>
+                <div class="panel-body">
+                    Salesmen are responsible for selling various products in various areas. This relationship is managed with a checkbox grid. Click the add button to get started.
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Salesman name</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    {% for salesman in salesmen %}
+                        <tr>
+                            <td>{{ salesman.name }}</td>
+                            <td><a class="btn btn-primary btn-sm" href="{{ path('salesman_edit', {id: salesman.id}) }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a></td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td><a class="btn btn-success btn-sm" href="{{ path('salesman_add') }}"><i class="glyphicon glyphicon-plus"></i> Add</a></td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+{% endblock %}

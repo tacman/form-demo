@@ -1,0 +1,13 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <h1>Numbers</h1>
+    <p>This demo shows how the collection helper works with a simple collection of scalars.</p>
+    <p>Enter some numbers and submit them.</p>
+
+    {{ form_start(form) }}
+        {{ form_row(form.numbers, {label: false}) }}
+        {{ form_rest(form) }}
+        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i> Save</button>
+    {{ form_end(form) }}
+{% endblock %}

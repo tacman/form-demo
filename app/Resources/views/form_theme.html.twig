@@ -1,0 +1,83 @@
+{% block infinite_form_checkbox_grid_widget %}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+        {% for h in headers.choices %}
+            <th scope="col">{{ h.label }}</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    {% for row in form %}
+        {{ form_widget(row) }}
+    {% endfor %}
+</table>
+{% endblock %}
+
+{% block infinite_form_checkbox_row_widget %}
+    <tr>
+        <th scope="row">{{ form.vars.label }}</th>
+    {% for cell in form %}
+        <td>
+            {# Bare checkbox with no label - bypass bootstrap_3_layout. #}
+            {% form_theme cell 'form_div_layout.html.twig' %}
+            {{ form_widget(cell) }}
+        </td>
+    {% endfor %}
+    </tr>
+{% endblock %}
+
+{#
+    This is a generic theme for collections that renders them as a table.
+#}
+{% block collection_widget %}
+    {%- set collectionForm = form %}
+    <table class="table collection {{ table_class | default('') }}">
+        {{ cols | default('') }}
+        <thead><tr>
+            {% if collectionForm.vars.prototype.vars.compound %}
+                {% for field in collectionForm.vars.prototype %}
+                    <th>{{ form_label(field) | striptags }}</th>
+                {% endfor %}
+            {% else %}
+                <th>{{ label|default(form_label(collectionForm) | striptags) }}</th>
+            {% endif %}
+            {% if collectionForm.vars.allow_delete %}
+                <th>Delete</th>
+            {% endif %}
+        </tr></thead>
+        <tbody class="items">
+        {%- for form in collectionForm -%}
+            {{ block('collection_entry_row') }}
+        {%- endfor -%}
+        </tbody>
+        {% if collectionForm.vars.allow_add %}
+            {% set form = collectionForm.vars.prototype %}
+            <tbody><tr>
+                <td colspan="{{ form.vars.compound ? form|length : 1 }}"></td>
+                <td><button class="btn btn-success add_item" type="button" data-prototype="{{ block('collection_entry_row') | escape }}">Add</button></td>
+            </tr></tbody>
+        {% endif %}
+    </table>
+{% endblock %}
+
+{% block collection_entry_row -%}
+    <tr class="item">
+        {% if form.vars.compound %}
+            {% for field in form %}
+                <td>
+                    {{ form_row(field, {label: false}) }}
+                </td>
+            {% endfor %}
+        {% else %}
+            <td>
+                {{ form_row(form, {label: false}) }}
+            </td>
+        {% endif %}
+        {% if form.parent.vars.allow_delete %}
+            <td>
+                <button class="btn btn-danger remove_item" type="button">Delete</button>
+            </td>
+        {% endif %}
+    </tr>
+{%- endblock %}
