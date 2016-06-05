@@ -40,7 +40,7 @@ class SalesmanController extends Controller
         $firstArea = $this->getDoctrine()->getRepository('E:Area')->findOneBy([]);
 
         if (null === $firstProduct || null === $firstArea) {
-            $this->addFlash('product_or_area_not_defined', '');
+            $this->get('session')->getFlashBag()->add('product_or_area_not_defined', '');
         }
 
         $form = $this->createForm('salesman', $salesman);
@@ -52,9 +52,9 @@ class SalesmanController extends Controller
             $em->persist($salesman);
             $em->flush();
 
-            $this->addFlash('success', 'Salesman saved.');
+            $this->get('session')->getFlashBag()->add('success', 'Salesman saved.');
 
-            return $this->redirectToRoute('home');
+            return $this->redirect($this->generateUrl('home'));
         }
 
         return $this->render('AppBundle:Salesman:edit.html.twig', array(

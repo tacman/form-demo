@@ -4,7 +4,7 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class InvoiceServiceLineType extends AbstractType
 {
@@ -25,11 +25,11 @@ class InvoiceServiceLineType extends AbstractType
         return 'invoice_service_line';
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults([
+        $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Model\InvoiceServiceLine',
             'model_class' => 'AppBundle\Model\InvoiceServiceLine',
-        ]);
+        ));
     }
 }

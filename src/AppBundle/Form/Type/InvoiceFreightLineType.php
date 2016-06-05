@@ -3,9 +3,8 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class InvoiceFreightLineType extends AbstractType
 {
@@ -25,11 +24,11 @@ class InvoiceFreightLineType extends AbstractType
         return 'invoice_freight_line';
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults([
+        $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Model\InvoiceFreightLine',
             'model_class' => 'AppBundle\Model\InvoiceFreightLine',
-        ]);
+        ));
     }
 }

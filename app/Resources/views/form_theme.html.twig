@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th scope="col"></th>
-        {% for h in headers.choices %}
+        {% for h in headers.remainingViews %}
             <th scope="col">{{ h.label }}</th>
         {% endfor %}
         </tr>
@@ -20,7 +20,6 @@
     {% for cell in form %}
         <td>
             {# Bare checkbox with no label - bypass bootstrap_3_layout. #}
-            {% form_theme cell 'form_div_layout.html.twig' %}
             {{ form_widget(cell) }}
         </td>
     {% endfor %}
