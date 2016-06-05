@@ -1,7 +1,7 @@
-Infinite Form Demo (3.1)
+Infinite Form Demo (3.0)
 ===============
 
-A project to demonstrate the Infinite Form bundle under Symfony 3.1.
+A project to demonstrate the Infinite Form bundle under Symfony 3.0.
 
 Installation
 ------------
