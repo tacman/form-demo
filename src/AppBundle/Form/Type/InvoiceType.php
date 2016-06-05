@@ -2,9 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
-use Infinite\FormBundle\Form\Type\PolyCollectionType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,23 +10,23 @@ class InvoiceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('recipient', TextType::class, [
+        $builder->add('recipient', 'text', array(
             'required' => false,
-        ]);
+        ));
 
-        $builder->add('lines', PolyCollectionType::class, [
+        $builder->add('lines', 'infinite_form_polycollection', array(
             'required' => false,
-            'types' => [
-                InvoiceFreightLineType::class,
-                InvoiceProductLineType::class,
-                InvoiceServiceLineType::class,
-            ],
+            'types' => array(
+                'invoice_freight_line',
+                'invoice_product_line',
+                'invoice_service_line',
+            ),
             'allow_add'    => true,
             'allow_delete' => true,
-        ]);
+        ));
     }
 
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'invoice';
     }

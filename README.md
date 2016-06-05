@@ -1,7 +1,7 @@
-Infinite Form Demo (2.8)
+Infinite Form Demo (2.7)
 ===============
 
-A project to demonstrate the Infinite Form bundle under Symfony 2.8.
+A project to demonstrate the Infinite Form bundle under Symfony 2.7.
 
 Installation
 ------------

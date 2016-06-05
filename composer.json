@@ -6,10 +6,7 @@
     "autoload": {
         "psr-4": {
             "": "src/"
-        },
-        "files": [
-            "app/AppKernel.php"
-        ]
+        }
     },
     "repositories": [
         {
@@ -18,8 +15,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.9",
-        "symfony/symfony": "2.8.*",
+        "php": ">=5.5",
+        "symfony/symfony": "2.7.*",
 
         "components/bootstrap": "~3.3.6",
         "components/jquery": "~2.2.4",
@@ -31,7 +28,7 @@
 
         "robloach/component-installer": "^0.2",
 
-        "sensio/distribution-bundle": "^5.0",
+        "sensio/distribution-bundle": "^4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
 
         "symfony/monolog-bundle": "^2.4"

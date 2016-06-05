@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\Type\SalesmanType;
 use Doctrine\ORM\EntityManager;
 use Entity\Area;
 use Entity\Product;
@@ -44,7 +43,7 @@ class SalesmanController extends Controller
             $this->addFlash('product_or_area_not_defined', '');
         }
 
-        $form = $this->createForm(SalesmanType::class, $salesman);
+        $form = $this->createForm('salesman', $salesman);
 
         $form->handleRequest($request);
 

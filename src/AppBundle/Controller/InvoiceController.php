@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\Type\InvoiceType;
 use AppBundle\Model\Invoice;
 use AppBundle\Model\InvoiceFreightLine;
 use AppBundle\Model\InvoiceProductLine;
@@ -32,7 +31,7 @@ class InvoiceController extends Controller
         $freightLine->setUnitPrice(15);
         $freightLine->setCourier('Overnight Couriers');
 
-        $form = $this->createForm(InvoiceType::class, $invoice);
+        $form = $this->createForm('invoice', $invoice);
         $form->handleRequest($request);
 
         if ($form->isValid()) {

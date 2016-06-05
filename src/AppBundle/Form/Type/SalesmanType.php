@@ -4,24 +4,22 @@ namespace AppBundle\Form\Type;
 
 use Entity\Area;
 use Entity\Product;
-use Infinite\FormBundle\Form\Type\EntityCheckboxGridType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class SalesmanType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class, [
+        $builder->add('name', 'text', array(
             'required' => false,
-        ]);
+        ));
 
-        $builder->add('productAreas', EntityCheckboxGridType::class, [
+        $builder->add('productAreas', 'infinite_form_entity_checkbox_grid', array(
             'class' => 'Entity\SalesmanProductArea',
             'x_path' => 'productSold',
             'y_path' => 'areaServiced',
-        ]);
+        ));
     }
 
     /**
@@ -29,7 +27,7 @@ class SalesmanType extends AbstractType
      *
      * @return string The name of this type
      */
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'salesman';
     }

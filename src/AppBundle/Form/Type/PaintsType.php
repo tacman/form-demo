@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form\Type;
 
-use Infinite\FormBundle\Form\Type\CheckboxGridType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ArrayKeyChoiceList;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,7 +11,7 @@ class PaintsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('paints', CheckboxGridType::class, array(
+        $builder->add('paints', 'infinite_form_checkbox_grid', array(
             'x_choices' => array(
                 'white' => 'White',
                 'beige' => 'Beige',
@@ -29,7 +28,7 @@ class PaintsType extends AbstractType
         ));
     }
 
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'paints';
     }

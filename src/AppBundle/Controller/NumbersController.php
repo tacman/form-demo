@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\Type\NumbersType;
 use AppBundle\Model\Numbers;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Feb;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,7 +20,7 @@ class NumbersController extends Controller
         $numbers = new Numbers();
         $numbers->numbers[] = 5;
 
-        $form = $this->createForm(Numberstype::class, $numbers);
+        $form = $this->createForm('numbers', $numbers);
 
         $form->handleRequest($request);
 

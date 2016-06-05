@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\Type\PaintsType;
 use AppBundle\Model\Paints;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Feb;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,7 +20,7 @@ class PaintController extends Controller
         $paints = new Paints;
         $paints->paints[] = array('color' => 'white', 'finish' => 'high_gloss');
 
-        $form = $this->createForm(PaintsType::class, $paints);
+        $form = $this->createForm('paints', $paints);
 
         $form->handleRequest($request);
 

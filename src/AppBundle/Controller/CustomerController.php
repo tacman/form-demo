@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\Type\CustomerType;
 use AppBundle\Model\Address;
 use AppBundle\Model\Customer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as Feb;
@@ -28,7 +27,7 @@ class CustomerController extends Controller
         $address->line2 = 'Birchwood';
         $address->postcode = '6161';
 
-        $form = $this->createForm(CustomerType::class, $customer);
+        $form = $this->createForm('customer', $customer);
 
         $form->handleRequest($request);
 

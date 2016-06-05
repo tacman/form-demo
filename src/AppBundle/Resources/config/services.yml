@@ -1,1 +1,45 @@
 services:
+    app.form.type.address:
+        class: AppBundle\Form\Type\AddressType
+        tags:
+            - { name: form.type, alias: address }
+
+    app.form.type.customer:
+        class: AppBundle\Form\Type\CustomerType
+        tags:
+            - { name: form.type, alias: customer }
+
+    app.form.type.invoice:
+        class: AppBundle\Form\Type\InvoiceType
+        tags:
+            - { name: form.type, alias: invoice }
+
+    app.form.type.invoice_freight_line:
+        class: AppBundle\Form\Type\InvoiceFreightLineType
+        tags:
+            - { name: form.type, alias: invoice_freight_line }
+
+    app.form.type.invoice_product_line:
+        class: AppBundle\Form\Type\InvoiceProductLineType
+        tags:
+            - { name: form.type, alias: invoice_product_line }
+
+    app.form.type.invoice_service_line:
+        class: AppBundle\Form\Type\InvoiceServiceLineType
+        tags:
+            - { name: form.type, alias: invoice_service_line }
+
+    app.form.type.numbers:
+        class: AppBundle\Form\Type\NumbersType
+        tags:
+            - { name: form.type, alias: numbers }
+
+    app.form.type.paints:
+        class: AppBundle\Form\Type\PaintsType
+        tags:
+            - { name: form.type, alias: paints }
+
+    app.form.type.salesman:
+        class: AppBundle\Form\Type\SalesmanType
+        tags:
+            - { name: form.type, alias: salesman }
