@@ -12,7 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
-use Symfony\Component\Security\Core\Util\StringUtils;
 
 class SalesmanController extends Controller
 {
@@ -70,9 +69,9 @@ class SalesmanController extends Controller
      */
     public function loadDefaultsAction(Request $request)
     {
-        $expectedToken = $this->get('security.csrf.token_manager')->getToken('salesman_setup');
+        $expectedToken = $this->get('security.csrf.token_manager')->getToken('salesman_setup')->getValue();
 
-        if (!StringUtils::equals($expectedToken, $request->request->get('_token'))) {
+        if (!hash_equals($expectedToken, $request->request->get('_token'))) {
             throw new InvalidCsrfTokenException();
         }
 
