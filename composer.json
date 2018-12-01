@@ -1,0 +1,72 @@
+{
+    "name": "infinite-networks/form-demo",
+    "license": "MIT",
+    "type": "project",
+    "description": "Demonstrates the functionality of the Infinite form bundle",
+    "autoload": {
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jmclean/InfiniteFormBundle"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.4.*",
+
+        "components/bootstrap": "~3.3.6",
+        "components/jquery": "~2.2.4",
+
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/orm": "^2.5",
+
+        "infinite-networks/form-bundle": "^1.0",
+
+        "robloach/component-installer": "^0.2",
+
+        "symfony/monolog-bundle": "^2.8",
+        "symfony/polyfill-apcu": "^1.0",
+
+        "sensio/distribution-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^3.0.2"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^3.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ]
+    },
+    "config": {
+        "component-dir": "web/components",
+        "platform": {
+            "php": "5.5.9"
+        }
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative"
+    }
+}

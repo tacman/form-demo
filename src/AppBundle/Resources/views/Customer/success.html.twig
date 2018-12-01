@@ -1,0 +1,33 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <h1>Customer success</h1>
+
+    <p>You submitted the following information:</p>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Name: {{ customer.name }}
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Line 1</th>
+                    <th>Line 2</th>
+                    <th>Line 3</th>
+                    <th>Postcode</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for address in customer.addresses %}
+                    <tr>
+                        <td>{{ address.line1 }}</td>
+                        <td>{{ address.line2 }}</td>
+                        <td>{{ address.line3 }}</td>
+                        <td>{{ address.postcode }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

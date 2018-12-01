@@ -1,0 +1,13 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    {% if salesman.id %}
+        <h1>Edit {{ salesman.name }}</h1>
+    {% else %}
+        <h1>Add a new salesman</h1>
+    {% endif %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i> Save</button>
+    {{ form_end(form) }}
+{% endblock %}
