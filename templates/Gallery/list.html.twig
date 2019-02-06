@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Gallery list</h1>
+    {% if galleries|length %}
+        <ul>
+            {% for gallery in galleries %}
+                <li><a href="{{ path('gallery_edit', {id: gallery.id}) }}">{{ gallery.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <hr>
+    <p><a href="{{ path('gallery_add') }}" class="btn btn-primary">Add new gallery <i class="glyphicon glyphicon-plus"></i></a></p>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <p>
+        This demo allows you to select a country from the database.
+        Instead of displaying a dropdown of every country, it uses a lightweight AJAX callback to search for them.
+    </p>
+    <p>
+        The Infinite form bundle does not provide a route for this callback.
+        It must be defined manually and should check the user's roles if appropriate.
+    </p>
+    <form method="post">
+        {{ form_row(form, {
+            label: 'Country',
+        }) }}
+        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-arrow-right"></i> Continue</button>
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

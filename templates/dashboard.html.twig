@@ -21,6 +21,15 @@
                     <p><a class="btn btn-primary" href="{{ path('invoice_add') }}">Create invoice</a></p>
                 </div>
             </section>
+            <section class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Entity search demo</h2></div>
+                <div class="panel-body">
+                    <p>
+                        EntitySearchType is inspired by EntityType. Instead of a dropdown, it is a text field that autocompletes using an AJAX callback.
+                    </p>
+                    <p><a class="btn btn-primary" href="{{ path('country') }}">Select a country</a></p>
+                </div>
+            </section>
         </div>
         <div class="col-md-6">
             <section class="panel panel-default">
@@ -55,6 +64,16 @@
                         <td><a class="btn btn-success btn-sm" href="{{ path('salesman_add') }}"><i class="glyphicon glyphicon-plus"></i> Add</a></td>
                     </tr>
                 </table>
+            </section>
+            <section class="panel panel-default">
+                <div class="panel-heading"><h2 class="panel-title">Attachment demo</h2></div>
+                <div class="panel-body">
+                    <p>A file upload field that stays uploaded even if there's a validation error elsewhere in the form.</p>
+                    <p>
+                        <a class="btn btn-primary" href="{{ path('appliance_list') }}">Single attachment demo</a>
+                        <a class="btn btn-primary" href="{{ path('gallery_list') }}">Multiple attachment demo</a>
+                    </p>
+                </div>
             </section>
         </div>
     </div>

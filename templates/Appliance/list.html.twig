@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Appliances</h1>
+    {% if appliances|length %}
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Appliance</th>
+                <th>Manual</th>
+                <th>Edit</th>
+            </tr>
+            {% for appliance in appliances %}
+                <tr>
+                    <td>{{ appliance.name }}</td>
+                    <td>
+                        {% if appliance.manual %}
+                            <a href="/uploads/{{ appliance.manual.physicalName }}">Download: {{ appliance.manual.filename }}</a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('appliance_edit', {id: appliance.id}) }}">Edit...</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    <hr>
+    <p><a href="{{ path('appliance_add') }}" class="btn btn-primary">Add new appliance <i class="glyphicon glyphicon-plus"></i></a></p>
+{% endblock %}

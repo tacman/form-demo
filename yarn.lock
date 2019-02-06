@@ -2867,6 +2867,11 @@ jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
+js-autocomplete@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/js-autocomplete/-/js-autocomplete-1.0.4.tgz#be88231719a80e89724d0c20f778270c3c0b577d"
+  integrity sha1-vogjFxmoDolyTQwg93gnDDwLV30=
+
 js-levenshtein@^1.1.3:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/js-levenshtein/-/js-levenshtein-1.1.4.tgz#3a56e3cbf589ca0081eb22cd9ba0b1290a16d26e"

@@ -1,0 +1,12 @@
+infinite_form:
+    attachments:
+        # For demonstration purposes, these attachments are saved inside the web root.
+        # In a real project you should consider storing them outside the web root depending on your security needs.
+
+        'App\Entity\GalleryItem':
+            dir:    '%kernel.project_dir%/public/uploads'
+            format: 'gallery/{hash(0..2)}/{name}'
+
+        'App\Entity\ApplianceManual':
+            dir:    '%kernel.project_dir%/public/uploads'
+            format: 'manuals/{name}'

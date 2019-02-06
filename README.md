@@ -7,7 +7,7 @@ Installation
 ------------
 
 * composer install
-* copy .env to .env.local and set up a database connection
+* copy .env.dist to .env and set up a database connection
 * bin/console d:s:u -f
 * yarn install
 * yarn run encore dev

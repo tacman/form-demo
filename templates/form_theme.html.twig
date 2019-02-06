@@ -27,57 +27,41 @@
     </tr>
 {% endblock %}
 
-{#
-    This is a generic theme for collections that renders them as a table.
-#}
-{% block collection_widget %}
-    {%- set collectionForm = form %}
-    <table class="table collection {{ table_class | default('') }}">
-        {{ cols | default('') }}
+{# A collection theme specially tuned for the photo gallery screen. #}
+{% block _gallery_items_widget -%}
+    <table class="table table-bordered collection collection-autoinitialize">
         <thead><tr>
-            {% if collectionForm.vars.prototype.vars.compound %}
-                {% for field in collectionForm.vars.prototype %}
-                    <th>{{ form_label(field) | striptags }}</th>
-                {% endfor %}
-            {% else %}
-                <th>{{ label|default(form_label(collectionForm) | striptags) }}</th>
-            {% endif %}
-            {% if collectionForm.vars.allow_delete %}
-                <th>Delete</th>
-            {% endif %}
+            <th>Image</th>
+            <th>Title</th>
+            <th>Options</th>
         </tr></thead>
-        <tbody class="items">
-        {%- for form in collectionForm -%}
-            {{ block('collection_entry_row') }}
-        {%- endfor -%}
-        </tbody>
-        {% if collectionForm.vars.allow_add %}
-            {% set form = collectionForm.vars.prototype %}
-            <tbody><tr>
-                <td colspan="{{ form.vars.compound ? form|length : 1 }}"></td>
-                <td><button class="btn btn-success add_item" type="button" data-prototype="{{ block('collection_entry_row') | escape }}">Add</button></td>
-            </tr></tbody>
-        {% endif %}
+        <tbody class="items">{{ form_rest(form) }}</tbody>
+        <tbody><tr>
+            <td colspan="2"></td>
+            <td><button class="btn btn-success add_item" type="button" data-prototype="{{ form_row(prototype) | escape }}"><i class="glyphicon glyphicon-plus"></i> Add</button></td>
+        </tr></tbody>
     </table>
-{% endblock %}
+{%- endblock %}
 
-{% block collection_entry_row -%}
+{% block _gallery_items_entry_row -%}
     <tr class="item">
-        {% if form.vars.compound %}
-            {% for field in form %}
-                <td>
-                    {{ form_row(field, {label: false}) }}
-                </td>
-            {% endfor %}
-        {% else %}
-            <td>
-                {{ form_row(form, {label: false}) }}
-            </td>
-        {% endif %}
-        {% if form.parent.vars.allow_delete %}
-            <td>
-                <button class="btn btn-danger remove_item" type="button">Delete</button>
-            </td>
-        {% endif %}
+        <td>
+            {#
+                In this example we don't bother rendering form.file for already-uploaded files as it's not
+                needed in a collection context where the entire row can just be removed and replaced.
+            #}
+            {{ form_row(form.meta) }}
+            {% set attachment = form.vars.value %}
+            {% set is_file_uploaded = attachment is not null and attachment.physicalName is not null %}
+            {% if is_file_uploaded %}
+                <img src="/uploads/{{ attachment.physicalName }}" style="max-width: 100px; max-height: 100px">
+            {% else %}
+                {{ form_row(form.file) }}
+            {% endif %}
+        </td>
+        <td>
+            {{ form_row(form.title) }}
+        </td>
+        <td><button class="btn btn-danger remove_item"><i class="glyphicon glyphicon-minus"></i> Remove</button></td>
     </tr>
 {%- endblock %}

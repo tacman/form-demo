@@ -29,9 +29,8 @@ class SalesmanProductArea
     /**
      * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumn(onDelete="CASCADE")
-     * @ORM\JoinColumn(onDelete="CASCADE")
      *
-     * @var Salesman
+     * @var Product
      */
     protected $productSold;
 

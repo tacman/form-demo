@@ -21,6 +21,14 @@
                         <button class="btn btn-sm btn-success">Load defaults?</button>
                     </form>
                 </div>
+            {% elseif flashType == 'country_not_defined' %}
+                <div class="alert alert-danger">
+                    <form action="{{ path('country_setup') }}" method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token('country_setup') }}"/>
+                        Countries haven't been added to the database yet.
+                        <button class="btn btn-sm btn-success">Load defaults?</button>
+                    </form>
+                </div>
             {% elseif flashType in ['success', 'info', 'warning', 'danger'] %}
                 {% for message in messages %}
                     <div class="alert alert-{{ flashType }}">

@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Add appliance</h1>
+
+    <p>An appliance has a single, optional attachment. The attachment type is similar to a conventional file
+        field but it will remember your upload even if there is a validation error elsewhere in the form.
+        You can test this by leaving the name field blank.</p>
+
+    <p>Internally, the file is always saved to the file uploads directory, and the form comes back with a hidden field
+        containing metadata about the saved file. This metadata includes an HMAC for security.</p>
+
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.manual) }}
+        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i> Save</button>
+    {{ form_end(form) }}
+{% endblock %}

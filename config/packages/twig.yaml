@@ -4,5 +4,6 @@ twig:
     strict_variables: '%kernel.debug%'
     form_themes:
         - 'bootstrap_3_layout.html.twig'
+        - '@InfiniteForm/collection_table_theme.html.twig'
         - '@InfiniteForm/form_theme.html.twig'
         - 'form_theme.html.twig'

@@ -5,15 +5,15 @@ namespace App\Controller;
 use App\Form\Type\CustomerType;
 use App\Model\Address;
 use App\Model\Customer;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration as Feb;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class CustomerController extends AbstractController
 {
     /**
-     * @Feb\Route("/customer", name="customer")
+     * @Route("/customer", name="customer")
      * @param Request $request
      * @return Response
      */

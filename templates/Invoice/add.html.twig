@@ -14,7 +14,7 @@
 {% block infinite_form_polycollection_row %}
     {% set collectionForm = form %}
     <hr>
-    <div class="collection" data-remove-selector="> .item > .row > div > a.remove_item">
+    <div class="collection collection-autoinitialize" data-remove-selector="> .item > .row > div > a.remove_item">
         <div class="clearfix">
             <div class="pull-left">
                 {{ form_label(collectionForm, 'Invoice lines') }}
