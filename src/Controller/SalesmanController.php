@@ -27,7 +27,7 @@ class SalesmanController extends AbstractController
     }
 
     /**
-     * @Feb\ParamConverter
+     * @Feb\ParamConverter("salesman", converter="doctrine.orm")
      * @Route("/salesman/{id}/edit", name="salesman_edit", requirements={"id" = "\d+"})
      * @param Salesman $salesman
      * @param Request  $request

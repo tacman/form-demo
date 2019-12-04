@@ -1,7 +1,7 @@
-Infinite Form Demo (4.2)
+Infinite Form Demo (5.0)
 ===============
 
-A project to demonstrate the Infinite Form bundle under Symfony 4.2.
+A project to demonstrate the Infinite Form bundle under Symfony 5.0.
 
 Installation
 ------------
