@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Countries;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 
@@ -66,7 +66,7 @@ class CountryController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->getConnection()->executeUpdate(sprintf('DELETE FROM %s', $em->getClassMetadata(Country::class)->getTableName()));
 
-        foreach (Intl::getRegionBundle()->getCountryNames('en') as $countryName) {
+        foreach (Countries::getNames('en') as $countryName) {
             $em->persist($country = new Country());
             $country->setName($countryName);
         }
